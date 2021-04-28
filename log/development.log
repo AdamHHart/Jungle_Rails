@@ -383,3 +383,330 @@ Processing by CartsController#show as HTML
   [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
   Rendered layouts/_top_nav.html.erb (1.1ms)
 Completed 200 OK in 58ms (Views: 56.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:28:35 -0700
+Processing by CartsController#show as HTML
+  Rendered carts/show.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/Users/adamhart/blog/jungle_app/app/views/carts/show.html.erb:37: syntax error, unexpected '='
+...e;     if (@products.length !== 0) { 
+...                              ^
+/Users/adamhart/blog/jungle_app/app/views/carts/show.html.erb:50: syntax error, unexpected '}', expecting end
+       } 
+       ^):
+  app/views/carts/show.html.erb:37: syntax error, unexpected '='
+  app/views/carts/show.html.erb:50: syntax error, unexpected '}', expecting end
+
+
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.4ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (7.4ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (16.0ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:28:50 -0700
+Processing by CartsController#show as HTML
+  Rendered carts/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/Users/adamhart/blog/jungle_app/app/views/carts/show.html.erb:37: syntax error, unexpected '{', expecting then or ';' or '\n'
+...   if (@products.length != 0) { 
+...                              ^
+/Users/adamhart/blog/jungle_app/app/views/carts/show.html.erb:50: syntax error, unexpected '}', expecting end
+       } 
+       ^):
+  app/views/carts/show.html.erb:37: syntax error, unexpected '{', expecting then or ';' or '\n'
+  app/views/carts/show.html.erb:50: syntax error, unexpected '}', expecting end
+
+
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.3ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (12.2ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (5.3ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (10.3ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:29:16 -0700
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 11
+  Rendered carts/_item.html.erb (3.2ms)
+  Rendered carts/show.html.erb within layouts/application (8.5ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.2ms)
+Completed 200 OK in 41ms (Views: 39.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:36:20 -0700
+Processing by CartsController#show as HTML
+  Rendered carts/show.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/Users/adamhart/blog/jungle_app/app/views/carts/show.html.erb:50: syntax error, unexpected tSTRING_DEND, expecting end
+       } 
+       ^):
+  app/views/carts/show.html.erb:50: syntax error, unexpected tSTRING_DEND, expecting end
+
+
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.8ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.3ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (7.5ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (5.5ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (11.0ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:36:38 -0700
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (0.6ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 11
+  Rendered carts/_item.html.erb (3.3ms)
+  Rendered carts/show.html.erb within layouts/application (8.0ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.4ms)
+Completed 200 OK in 41ms (Views: 39.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:36:46 -0700
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 11
+  Rendered carts/_item.html.erb (2.3ms)
+  Rendered carts/show.html.erb within layouts/application (5.1ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.2ms)
+Completed 200 OK in 36ms (Views: 34.7ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/cart/remove_item?product_id=11" for 127.0.0.1 at 2021-04-28 10:36:49 -0700
+Processing by CartsController#remove_item as HTML
+  Parameters: {"authenticity_token"=>"7B4QzLOMumLNzJaQwjd1+8cSwz+E9YVQrS84NWEW++E1ScRcO4Csytp2O6UlIH1+wxeHPb5NEz3FO6eJc8srUg==", "product_id"=>"11"}
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:36:49 -0700
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 11
+  Rendered carts/_item.html.erb (1.8ms)
+  Rendered carts/show.html.erb within layouts/application (4.8ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (0.9ms)
+Completed 200 OK in 36ms (Views: 34.7ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/cart/remove_item?product_id=11" for 127.0.0.1 at 2021-04-28 10:36:50 -0700
+Processing by CartsController#remove_item as HTML
+  Parameters: {"authenticity_token"=>"YWAoXoYojaDU39n5I8zNr2ho0kZzm6Fp36CqFBC9N064N/zODiSbCMNldMzE28UqbG2WREkjNwS3tDWoAmDn/Q==", "product_id"=>"11"}
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:36:50 -0700
+Processing by CartsController#show as HTML
+  Rendered carts/show.html.erb within layouts/application (0.2ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (0.7ms)
+Completed 200 OK in 25ms (Views: 24.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:37:12 -0700
+Processing by CartsController#show as HTML
+  Rendered carts/show.html.erb within layouts/application (0.8ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (0.7ms)
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:37:21 -0700
+Processing by CartsController#show as HTML
+  Rendered carts/show.html.erb within layouts/application (1.1ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (1.1ms)
+Completed 200 OK in 58ms (Views: 56.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:37:29 -0700
+Processing by CartsController#show as HTML
+  Rendered carts/show.html.erb within layouts/application (1.0ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.1ms)
+Completed 200 OK in 30ms (Views: 29.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:37:37 -0700
+Processing by CartsController#show as HTML
+  Rendered carts/show.html.erb within layouts/application (1.0ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (1.1ms)
+Completed 200 OK in 29ms (Views: 28.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-04-28 10:37:38 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (11.9ms)
+  Rendered products/index.html.erb within layouts/application (14.7ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (1.3ms)
+Completed 200 OK in 43ms (Views: 41.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-04-28 10:38:57 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (12.0ms)
+  Rendered products/index.html.erb within layouts/application (14.4ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (1.3ms)
+Completed 200 OK in 45ms (Views: 43.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:38:59 -0700
+Processing by CartsController#show as HTML
+  Rendered carts/show.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (wrong number of arguments (given 1, expected 0)):
+    50:     </div>
+    51:   </div>
+    52:   <% else %>
+    53:     <%= alert(" Your cart is empty, let's find something you like!") %>
+    54:     <h3> Your cart is empty, let's find something you like! </h3>
+    55:     <%= link_to "Browse Products!" , root_url, class: 'btn btn-info' %>
+    56:   <% end %> 
+  app/views/carts/show.html.erb:53:in `_app_views_carts_show_html_erb__3999692256597798286_2286589000'
+
+
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.8ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.3ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.3ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (5.4ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (10.7ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:44:36 -0700
+Processing by CartsController#show as HTML
+  Rendered carts/show.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/Users/adamhart/blog/jungle_app/app/views/carts/show.html.erb:61: syntax error, unexpected ensure, expecting end
+          ensure
+          ^~~~~~
+/Users/adamhart/blog/jungle_app/app/views/carts/show.html.erb:63: syntax error, unexpected end-of-input, expecting end):
+  app/views/carts/show.html.erb:61: syntax error, unexpected ensure, expecting end
+  app/views/carts/show.html.erb:63: syntax error, unexpected end-of-input, expecting end
+
+
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.8ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.3ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (8.2ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (5.6ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (10.9ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:44:59 -0700
+Processing by CartsController#show as HTML
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products" WHERE 1=0[0m
+  Rendered carts/show.html.erb within layouts/application (5.6ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (1.5ms)
+Completed 200 OK in 47ms (Views: 44.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:45:36 -0700
+Processing by CartsController#show as HTML
+  Rendered carts/show.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (wrong number of arguments (given 1, expected 0)):
+    51:     </div>
+    52:   </div>
+    53:   <% else %>
+    54:     <%= alert(" Your cart is empty, let's find something you like!") %>
+    55:     <h3> Your cart is empty, let's find something you like! </h3>
+    56:     <%= link_to "Browse Products!" , root_url, class: 'btn btn-info' %>
+    57:   <% end %> 
+  app/views/carts/show.html.erb:54:in `_app_views_carts_show_html_erb__3999692256597798286_2213617940'
+
+
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.3ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.3ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.3ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (5.6ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (10.8ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:45:57 -0700
+Processing by CartsController#show as HTML
+  Rendered carts/show.html.erb within layouts/application (1.4ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.1ms)
+Completed 200 OK in 37ms (Views: 35.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:49:39 -0700
+Processing by CartsController#show as HTML
+  Rendered carts/show.html.erb within layouts/application (1.4ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (0.8ms)
+Completed 200 OK in 67ms (Views: 65.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-04-28 10:49:42 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (14.6ms)
+  Rendered products/index.html.erb within layouts/application (17.5ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (1.0ms)
+Completed 200 OK in 43ms (Views: 42.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:50:03 -0700
+Processing by CartsController#show as HTML
+  Rendered carts/show.html.erb within layouts/application (1.0ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.2ms)
+Completed 200 OK in 35ms (Views: 34.6ms | ActiveRecord: 0.4ms)
