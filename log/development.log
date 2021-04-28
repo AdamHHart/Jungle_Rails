@@ -710,3 +710,172 @@ Processing by CartsController#show as HTML
   [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
   Rendered layouts/_top_nav.html.erb (1.2ms)
 Completed 200 OK in 35ms (Views: 34.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-04-28 11:00:12 -0700
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (22.0ms)
+  Rendered products/index.html.erb within layouts/application (25.5ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (0.9ms)
+Completed 200 OK in 71ms (Views: 69.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2021-04-28 11:00:25 -0700
+Processing by Admin::ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."id" DESC
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered admin/products/_product.html.erb (15.5ms)
+  Rendered admin/products/index.html.erb within layouts/application (17.9ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.1ms)
+Completed 200 OK in 44ms (Views: 42.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/admin/products/new" for 127.0.0.1 at 2021-04-28 11:00:38 -0700
+Processing by Admin::ProductsController#new as HTML
+  [1m[35mCategory Load (5.8ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  Rendered admin/products/new.html.erb within layouts/application (44.4ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.0ms)
+Completed 200 OK in 67ms (Views: 60.1ms | ActiveRecord: 6.1ms)
+
+
+Started POST "/admin/products" for 127.0.0.1 at 2021-04-28 11:02:23 -0700
+Processing by Admin::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xA1wY+jIHQfdnDUI5LE5sHO370/Ova6cKDgfTO6KC6cdWqTzYMQLr8ommD0DpjE1d7KrTfQFOPFALIDw/FfbFA==", "product"=>{"name"=>"G6 Aircraft", "description"=>"Feelin' so fly", "category_id"=>"2", "quantity"=>"0", "price"=>"1000000", "image"=>#<ActionDispatch::Http::UploadedFile:0x00000001040e81c0 @tempfile=#<Tempfile:/var/folders/6m/zz1fqp1505n3tdsbtjs5_wdh0000gn/T/RackMultipart20210428-29711-1rxmpnj.jpeg>, @original_filename="G6_aircraft.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"product[image]\"; filename=\"G6_aircraft.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Product"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mSQL (8.3ms)[0m  INSERT INTO "products" ("name", "description", "category_id", "quantity", "image", "price_cents", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "G6 Aircraft"], ["description", "Feelin' so fly"], ["category_id", 2], ["quantity", 0], ["image", "G6_aircraft.jpeg"], ["price_cents", 100000000], ["created_at", "2021-04-28 18:02:24.017878"], ["updated_at", "2021-04-28 18:02:24.017878"]]
+  [1m[36m (10.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/products
+Completed 302 Found in 124ms (ActiveRecord: 19.3ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2021-04-28 11:02:24 -0700
+Processing by Admin::ProductsController#index as HTML
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."id" DESC
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered admin/products/_product.html.erb (4.5ms)
+  Rendered admin/products/index.html.erb within layouts/application (5.4ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (0.6ms)
+Completed 200 OK in 22ms (Views: 20.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-04-28 11:02:29 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (7.9ms)
+  Rendered products/index.html.erb within layouts/application (9.5ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (1.0ms)
+Completed 200 OK in 70ms (Views: 28.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products/13" for 127.0.0.1 at 2021-04-28 11:02:32 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered products/show.html.erb within layouts/application (2.6ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.0ms)
+Completed 200 OK in 33ms (Views: 30.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-04-28 11:03:27 -0700
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (11.6ms)
+  Rendered products/index.html.erb within layouts/application (13.5ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.2ms)
+Completed 200 OK in 42ms (Views: 40.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-04-28 11:05:22 -0700
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (256.0ms)
+  Rendered products/index.html.erb within layouts/application (258.2ms)
+Completed 500 Internal Server Error in 261ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (undefined local variable or method `item' for #<#<Class:0x0000000107c6d498>:0x0000000107ce5cb8>):
+    19: 
+    20:   <aside class="price">
+    21: 
+    22:         <% if item.quantity == 0 %>
+    23:         <div class="alert alert-warning" role="alert">
+    24:           <h3>SOLD OUT! </h3>
+    25:         </div>  
+  app/views/products/_product.html.erb:22:in `_app_views_products__product_html_erb__4480898221203544202_2444518040'
+  app/views/products/index.html.erb:8:in `_app_views_products_index_html_erb__2741297069271246089_2212735280'
+
+
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.9ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.3ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (7.5ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (6.0ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/adamhart/.rvm/gems/ruby-2.6.6/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (11.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-04-28 11:06:47 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (17.5ms)
+  Rendered products/index.html.erb within layouts/application (20.6ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (1.1ms)
+Completed 200 OK in 53ms (Views: 50.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-04-28 11:07:02 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (18.3ms)
+  Rendered products/index.html.erb within layouts/application (21.7ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (1.2ms)
+Completed 200 OK in 58ms (Views: 56.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-04-28 11:07:26 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (17.0ms)
+  Rendered products/index.html.erb within layouts/application (19.5ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (1.2ms)
+Completed 200 OK in 54ms (Views: 52.5ms | ActiveRecord: 0.9ms)
