@@ -1,0 +1,385 @@
+  [1m[36m (0.6ms)[0m  [1mDROP DATABASE IF EXISTS "jungle_development"[0m
+  [1m[35m (0.0ms)[0m  DROP DATABASE IF EXISTS "jungle_test"
+  [1m[36m (1555.6ms)[0m  [1mCREATE DATABASE "jungle_development" ENCODING = 'unicode'[0m
+  [1m[35m (86.7ms)[0m  CREATE DATABASE "jungle_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (17.8ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (4.3ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (2.3ms)[0m  CREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) 
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (4.5ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (4.0ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (3.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160625062916')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621152728')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160621153855')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621153741')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160623222000')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160622113553')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160623110200')[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+  [1m[36m (4.5ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (10.5ms)[0m  CREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")
+  [1m[36m (2.0ms)[0m  [1mCREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) [0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) 
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")[0m
+  [1m[35m (1.5ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160625062916')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160621152728')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621153855')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160621153741')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160623222000')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160622113553')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160623110200')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1  [["name", "Apparel"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Apparel"], ["created_at", "2021-04-28 01:19:19.872674"], ["updated_at", "2021-04-28 01:19:19.872674"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1  [["name", "Electronics"]]
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Electronics"], ["created_at", "2021-04-28 01:19:19.874754"], ["updated_at", "2021-04-28 01:19:19.874754"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1  [["name", "Furniture"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Furniture"], ["created_at", "2021-04-28 01:19:19.888751"], ["updated_at", "2021-04-28 01:19:19.888751"]]
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Men's Classy shirt"], ["description", "Knausgaard chia yolo street wolf. Selfies vinegar pinterest butcher. Beard 90's hella fashion axe. Freegan vhs vice normcore next level. Letterpress jean shorts craft beer vinyl venmo banjo locavore."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-04-28 01:19:20.674090"], ["updated_at", "2021-04-28 01:19:20.674090"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Women's Zebra pants"], ["description", "Small batch diy cold-pressed blog drinking. Vice phlogiston pinterest selvage chia listicle iphone. Typewriter cred fingerstache artisan viral. Humblebrag tilde knausgaard lumbersexual umami lo-fi whatever. Vice pabst letterpress brooklyn five dollar toast franzen. Stumptown humblebrag direct trade."], ["image", "apparel2.jpg"], ["quantity", 18], ["price_cents", 12499], ["category_id", 1], ["created_at", "2021-04-28 01:19:20.691616"], ["updated_at", "2021-04-28 01:19:20.691616"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Hipster Hat"], ["description", "Kickstarter 90's semiotics. Kale chips fanny pack leggings. Dreamcatcher asymmetrical kitsch beard food truck narwhal organic. Beard tousled helvetica offal. Intelligentsia hashtag green juice artisan lumbersexual fanny pack ugh."], ["image", "apparel3.jpg"], ["quantity", 4], ["price_cents", 3449], ["category_id", 1], ["created_at", "2021-04-28 01:19:20.723672"], ["updated_at", "2021-04-28 01:19:20.723672"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Hipster Socks"], ["description", "Readymade gentrify bespoke. Asymmetrical knausgaard kale chips meditation. Shoreditch crucifix yolo banh mi farm-to-table you probably haven't heard of them retro. Quinoa 90's twee whatever. Butcher yolo chartreuse neutra."], ["image", "apparel4.jpg"], ["quantity", 8], ["price_cents", 2500], ["category_id", 1], ["created_at", "2021-04-28 01:19:20.823077"], ["updated_at", "2021-04-28 01:19:20.823077"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Russian Spy Shoes"], ["description", "Wes anderson thundercats small batch selfies fingerstache tacos ethical authentic. Sustainable umami flannel normcore yr. Umami tilde brunch kickstarter twee sartorial iphone quinoa. Pinterest schlitz squid mustache meditation phlogiston you probably haven't heard of them fingerstache. Chia letterpress crucifix."], ["image", "apparel5.jpg"], ["quantity", 8], ["price_cents", 122500], ["category_id", 1], ["created_at", "2021-04-28 01:19:20.845672"], ["updated_at", "2021-04-28 01:19:20.845672"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Human Feet Shoes"], ["description", "Lumbersexual raw denim retro vinegar chartreuse listicle five dollar toast. Bespoke kinfolk chartreuse ramps narwhal schlitz green juice. Crucifix irony ugh. Vhs pickled hashtag migas cronut. Marfa park mlkshk."], ["image", "apparel6.jpg"], ["quantity", 82], ["price_cents", 22450], ["category_id", 1], ["created_at", "2021-04-28 01:19:20.857490"], ["updated_at", "2021-04-28 01:19:20.857490"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Modern Skateboards"], ["description", "Irony fixie meggings iphone microdosing. Quinoa chartreuse celiac craft beer. Craft beer freegan church-key selfies park diy deep v bespoke. Park godard twee letterpress selvage 8-bit."], ["image", "electronics1.jpg"], ["quantity", 40], ["price_cents", 16449], ["category_id", 2], ["created_at", "2021-04-28 01:19:20.877729"], ["updated_at", "2021-04-28 01:19:20.877729"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Hotdog Slicer"], ["description", "Messenger bag disrupt iphone dreamcatcher. Master vhs carry raw denim blog. Drinking scenester wayfarers. Poutine echo master meggings lo-fi freegan diy. Tattooed shabby chic iphone actually."], ["image", "electronics2.jpg"], ["quantity", 3], ["price_cents", 2600], ["category_id", 2], ["created_at", "2021-04-28 01:19:20.899713"], ["updated_at", "2021-04-28 01:19:20.899713"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "World's Largest Smartwatch"], ["description", "Wayfarers meditation cliche cleanse ennui put a bird on it chillwave lomo. Heirloom scenester 3 wolf moon crucifix stumptown humblebrag disrupt. Tilde distillery kickstarter waistcoat pinterest. Kale chips health slow-carb cleanse intelligentsia vinegar pop-up."], ["image", "electronics3.jpg"], ["quantity", 32], ["price_cents", 202629], ["category_id", 2], ["created_at", "2021-04-28 01:19:20.923011"], ["updated_at", "2021-04-28 01:19:20.923011"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Optimal Sleeping Bed"], ["description", "Yolo food truck hella tumblr direct trade cred. Vinegar +1 meggings tattooed thundercats marfa five dollar toast street. Carry mumblecore deep v paleo pickled artisan typewriter. Raw denim franzen pitchfork meh vhs ethical roof kale chips. Brunch irony fixie cronut post-ironic godard tousled."], ["image", "furniture1.jpg"], ["quantity", 320], ["price_cents", 305200], ["category_id", 3], ["created_at", "2021-04-28 01:19:20.947478"], ["updated_at", "2021-04-28 01:19:20.947478"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (14.1ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Electric Chair"], ["description", "You probably haven't heard of them umami paleo pinterest pbr&b. Pork belly plaid green juice pour-over readymade mlkshk food truck yuccie. Phlogiston park knausgaard echo seitan. Vinegar selvage ugh paleo wes anderson goth brooklyn quinoa. Venmo bushwick meh mlkshk cliche 90's cray. Farm-to-table paleo xoxo."], ["image", "furniture2.jpg"], ["quantity", 2], ["price_cents", 98765], ["category_id", 3], ["created_at", "2021-04-28 01:19:20.989859"], ["updated_at", "2021-04-28 01:19:20.989859"]]
+  [1m[36m (3.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (11.6ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Red Bookshelf"], ["description", "Squid vinyl before they sold out humblebrag fashion axe keytar fanny pack. Literally photo booth normcore vegan fanny pack. Cray semiotics asymmetrical kombucha kinfolk. Leggings drinking everyday vinyl loko."], ["image", "furniture3.jpg"], ["quantity", 23], ["price_cents", 248375], ["category_id", 3], ["created_at", "2021-04-28 01:19:21.107217"], ["updated_at", "2021-04-28 01:19:21.107217"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+
+
+Started GET "/" for 127.0.0.1 at 2021-04-27 18:30:23 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (6.7ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (406.7ms)
+  Rendered products/index.html.erb within layouts/application (419.8ms)
+  [1m[36mCategory Load (0.8ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (7.5ms)
+Completed 200 OK in 2008ms (Views: 1991.3ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-04-27 18:33:11 -0700
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (9.1ms)
+  Rendered products/index.html.erb within layouts/application (11.6ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.1ms)
+Completed 200 OK in 44ms (Views: 40.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products/11" for 127.0.0.1 at 2021-04-27 18:33:15 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered products/show.html.erb within layouts/application (9.3ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (0.9ms)
+Completed 200 OK in 54ms (Views: 29.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/cart/add_item?product_id=11" for 127.0.0.1 at 2021-04-27 18:33:39 -0700
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"s1a11/1g4NzTvnGCiDneicRQedVmXIz1K99DeJFdMiNqAWFHdWz2dMQE3LdvLtYMwFU911zkGphDy9zEg4DikA==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-04-27 18:33:39 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (7.5ms)
+  Rendered products/index.html.erb within layouts/application (8.9ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (1.0ms)
+Completed 200 OK in 31ms (Views: 29.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-27 18:33:43 -0700
+Processing by CartsController#show as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 11[0m
+  Rendered carts/_item.html.erb (2.6ms)
+  Rendered carts/show.html.erb within layouts/application (6.1ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (1.1ms)
+Completed 200 OK in 39ms (Views: 37.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-27 18:41:28 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 11
+  Rendered carts/_item.html.erb (395.9ms)
+  Rendered carts/show.html.erb within layouts/application (407.4ms)
+  [1m[36mCategory Load (84.8ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (93.6ms)
+Completed 200 OK in 604ms (Views: 509.8ms | ActiveRecord: 91.8ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:12:37 -0700
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (24.5ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 11
+  Rendered carts/_item.html.erb (35.7ms)
+  Rendered carts/show.html.erb within layouts/application (77.7ms)
+  [1m[36mCategory Load (15.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (16.4ms)
+Completed 200 OK in 232ms (Views: 187.7ms | ActiveRecord: 39.9ms)
+
+
+Started POST "/cart/add_item?product_id=11" for 127.0.0.1 at 2021-04-28 10:12:55 -0700
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"pe4x6mClkMwzBLV2FHQOjN7cmX2Q++tBT4GyZ4l6VvN8ueV66KmGZCS+GEPzYwYJ2tndf6pDfSwnlS3bm6eGQA==", "product_id"=>"11"}
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:12:55 -0700
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 11
+  Rendered carts/_item.html.erb (3.2ms)
+  Rendered carts/show.html.erb within layouts/application (7.4ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.2ms)
+Completed 200 OK in 38ms (Views: 36.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:13:15 -0700
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (5.3ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 11
+  Rendered carts/_item.html.erb (3.4ms)
+  Rendered carts/show.html.erb within layouts/application (14.5ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.2ms)
+Completed 200 OK in 53ms (Views: 46.7ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:13:31 -0700
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (5.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 11
+  Rendered carts/_item.html.erb (2.5ms)
+  Rendered carts/show.html.erb within layouts/application (12.9ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.7ms)
+Completed 200 OK in 65ms (Views: 58.6ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-04-28 10:13:51 -0700
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (27.6ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (5.9ms)
+  Rendered products/index.html.erb within layouts/application (35.4ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.3ms)
+Completed 200 OK in 55ms (Views: 26.7ms | ActiveRecord: 28.0ms)
+
+
+Started GET "/products/12" for 127.0.0.1 at 2021-04-28 10:13:57 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 12]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered products/show.html.erb within layouts/application (16.8ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (0.8ms)
+Completed 200 OK in 83ms (Views: 70.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products/12" for 127.0.0.1 at 2021-04-28 10:14:12 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 12]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered products/show.html.erb within layouts/application (2.8ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (0.7ms)
+Completed 200 OK in 29ms (Views: 27.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products/12" for 127.0.0.1 at 2021-04-28 10:14:14 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mProduct Load (5.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 12]]
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered products/show.html.erb within layouts/application (3.2ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (1.2ms)
+Completed 200 OK in 51ms (Views: 42.4ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-04-28 10:14:53 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (23.2ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (15.7ms)
+  Rendered products/index.html.erb within layouts/application (41.0ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (0.7ms)
+Completed 200 OK in 83ms (Views: 57.4ms | ActiveRecord: 23.4ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2021-04-28 10:15:01 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (2.8ms)[0m  SELECT COUNT(*) FROM "products" WHERE "products"."category_id" = $1  [["category_id", 2]]
+  [1m[36mProduct Load (1.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1  ORDER BY "products"."created_at" DESC[0m  [["category_id", 2]]
+  Rendered products/_product.html.erb (2.0ms)
+  Rendered categories/show.html.erb within layouts/application (13.0ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (0.9ms)
+Completed 200 OK in 47ms (Views: 30.4ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/categories/3" for 127.0.0.1 at 2021-04-28 10:15:04 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "products" WHERE "products"."category_id" = $1  [["category_id", 3]]
+  [1m[36mProduct Load (7.7ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1  ORDER BY "products"."created_at" DESC[0m  [["category_id", 3]]
+  Rendered products/_product.html.erb (3.2ms)
+  Rendered categories/show.html.erb within layouts/application (13.8ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (1.2ms)
+Completed 200 OK in 46ms (Views: 36.3ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2021-04-28 10:15:11 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "products" WHERE "products"."category_id" = $1  [["category_id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."category_id" = $1  ORDER BY "products"."created_at" DESC[0m  [["category_id", 1]]
+  Rendered products/_product.html.erb (6.0ms)
+  Rendered categories/show.html.erb within layouts/application (8.9ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (1.0ms)
+Completed 200 OK in 38ms (Views: 35.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2021-04-28 10:15:16 -0700
+Processing by Admin::DashboardController#show as HTML
+  Rendered admin/dashboard/show.html.erb within layouts/application (1.0ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.2ms)
+Completed 200 OK in 30ms (Views: 29.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2021-04-28 10:15:18 -0700
+Processing by Admin::ProductsController#index as HTML
+  [1m[35mProduct Load (11.7ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."id" DESC
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered admin/products/_product.html.erb (8.0ms)
+  Rendered admin/products/index.html.erb within layouts/application (21.7ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.0ms)
+Completed 200 OK in 50ms (Views: 36.4ms | ActiveRecord: 12.3ms)
+
+
+Started GET "/admin/products" for 127.0.0.1 at 2021-04-28 10:15:40 -0700
+Processing by Admin::ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."id" DESC
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered admin/products/_product.html.erb (21.4ms)
+  Rendered admin/products/index.html.erb within layouts/application (23.7ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.4ms)
+Completed 200 OK in 58ms (Views: 55.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2021-04-28 10:15:47 -0700
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 11
+  Rendered carts/_item.html.erb (2.0ms)
+  Rendered carts/show.html.erb within layouts/application (5.3ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.1ms)
+Completed 200 OK in 58ms (Views: 56.9ms | ActiveRecord: 0.7ms)
