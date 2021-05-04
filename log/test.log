@@ -3717,3 +3717,365 @@ Completed 200 OK in 8ms (Views: 2.3ms | ActiveRecord: 2.5ms)
   [1m[35m (15.6ms)[0m  TRUNCATE TABLE "public"."users", "public"."orders", "public"."line_items", "public"."products", "public"."categories" RESTART IDENTITY CASCADE;
   [1m[36m (0.5ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL[0m
 >>>>>>> feature/testing-home-page
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.9ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL
+  [1m[36m (1.4ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+             tablename <> 'schema_migrations'  AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (0.8ms)[0m  select table_name from information_schema.views where table_schema = 'jungle_test'
+  [1m[36m (39.8ms)[0m  [1mTRUNCATE TABLE "public"."users", "public"."orders", "public"."line_items", "public"."products", "public"."categories" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Apparel"], ["created_at", "2021-05-04 21:21:11.499902"], ["updated_at", "2021-05-04 21:21:11.499902"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Everyday lomo chartreuse migas freegan scenester authentic."], ["description", "Art party try-hard crucifix. Direct trade craft beer tousled flexitarian. Raw denim lo-fi health meggings mustache shoreditch disrupt heirloom. Everyday next level cornhole carry migas raw denim wayfarers. Aesthetic schlitz brooklyn."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:21:11.963166"], ["updated_at", "2021-05-04 21:21:11.963166"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Irony wes anderson 3 wolf moon."], ["description", "Cray pour-over skateboard. Tousled tilde bespoke. Single-origin coffee health sartorial literally brooklyn. Cliche polaroid etsy chambray photo booth cred literally. Godard master goth lo-fi trust fund 3 wolf moon fingerstache."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:21:11.987428"], ["updated_at", "2021-05-04 21:21:11.987428"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Ugh phlogiston chartreuse vhs before they sold out vegan narwhal small batch."], ["description", "Direct trade stumptown street scenester photo booth selvage. Poutine echo asymmetrical. Vhs chicharrones typewriter celiac keytar put a bird on it biodiesel vegan. Muggle magic messenger bag artisan diy vhs. Butcher poutine master banh mi keytar cardigan shoreditch. Distillery banjo cleanse pug keytar asymmetrical before they sold out."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:21:12.011217"], ["updated_at", "2021-05-04 21:21:12.011217"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Next level flexitarian wayfarers 3 wolf moon photo booth put a bird on it."], ["description", "Paleo taxidermy chillwave biodiesel synth yuccie vhs cronut. Meggings offal hashtag kickstarter meh health master. Bicycle rights cleanse salvia kombucha ennui. Fingerstache health dreamcatcher vinegar."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:21:12.034246"], ["updated_at", "2021-05-04 21:21:12.034246"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Xoxo synth taxidermy mustache chambray austin skateboard yr."], ["description", "Roof truffaut echo. Lumbersexual brooklyn ethical fanny pack austin pop-up post-ironic chia. Ethical roof etsy farm-to-table kale chips butcher. Single-origin coffee sustainable sriracha brooklyn tumblr retro."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:21:12.065581"], ["updated_at", "2021-05-04 21:21:12.065581"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Cold-pressed you probably haven't heard of them put a bird on it tacos poutine."], ["description", "Hoodie you probably haven't heard of them jean shorts church-key. Xoxo kickstarter craft beer polaroid microdosing. Tacos kombucha green juice loko. Blog vinyl keffiyeh ethical meggings wayfarers selfies."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:21:12.089398"], ["updated_at", "2021-05-04 21:21:12.089398"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Pbr&b forage sartorial xoxo."], ["description", "Irony knausgaard selfies cardigan jean shorts food truck kale chips. Trust fund chillwave aesthetic mumblecore bicycle rights pug put a bird on it. Forage twee deep v salvia chicharrones single-origin coffee. Hella beard whatever carry poutine xoxo. Pour-over austin bushwick trust fund synth. Small batch beard blue bottle photo booth roof sustainable cardigan."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:21:12.112941"], ["updated_at", "2021-05-04 21:21:12.112941"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Umami slow-carb green juice godard cleanse."], ["description", "Williamsburg dreamcatcher chambray. Ennui cray food truck you probably haven't heard of them. Yolo direct trade church-key irony sustainable. Knausgaard hashtag crucifix chia sustainable irony pinterest. Authentic skateboard wes anderson."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:21:12.135480"], ["updated_at", "2021-05-04 21:21:12.135480"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Butcher jean shorts deep v gastropub."], ["description", "Pickled skateboard iphone flexitarian hammock gluten-free cleanse tilde. Retro flexitarian yolo ennui. Viral shabby chic heirloom. Irony pabst selvage. Selvage art party cleanse listicle gentrify. Tofu direct trade knausgaard bicycle rights."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:21:12.157676"], ["updated_at", "2021-05-04 21:21:12.157676"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Roof tote bag beard tilde kombucha."], ["description", "Aesthetic humblebrag sriracha +1 freegan. Actually raw denim butcher craft beer sartorial beard tilde keffiyeh. Small batch raw denim aesthetic paleo shabby chic chambray. Austin messenger bag semiotics swag."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:21:12.180341"], ["updated_at", "2021-05-04 21:21:12.180341"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2021-05-04 14:21:13 -0700
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.5ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (3.2ms)
+  Rendered products/index.html.erb within layouts/application (7.4ms)
+  [1m[36mCategory Load (1.7ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (3.5ms)
+Completed 200 OK in 134ms (Views: 127.3ms | ActiveRecord: 3.2ms)
+  [1m[35m (1.3ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL
+  [1m[36m (16.7ms)[0m  [1mTRUNCATE TABLE "public"."users", "public"."orders", "public"."line_items", "public"."products", "public"."categories" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL
+  [1m[36mActiveRecord::SchemaMigration Load (3.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (4.4ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL
+  [1m[36m (0.9ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+             tablename <> 'schema_migrations'  AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.4ms)[0m  select table_name from information_schema.views where table_schema = 'jungle_test'
+  [1m[36m (16.9ms)[0m  [1mTRUNCATE TABLE "public"."users", "public"."orders", "public"."line_items", "public"."products", "public"."categories" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Apparel"], ["created_at", "2021-05-04 21:23:04.799987"], ["updated_at", "2021-05-04 21:23:04.799987"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Deep v vinegar xoxo small batch five dollar toast."], ["description", "Park tilde try-hard jean shorts mumblecore plaid seitan. Gastropub bespoke intelligentsia beard biodiesel direct trade. Goth ethical cleanse pabst selvage paleo. Neutra plaid sriracha yuccie yolo."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:23:05.219152"], ["updated_at", "2021-05-04 21:23:05.219152"]]
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Pitchfork occupy crucifix drinking vinegar everyday keytar lomo."], ["description", "Intelligentsia diy pinterest organic mixtape keytar cleanse normcore. Sustainable intelligentsia portland put a bird on it helvetica try-hard. Cleanse kinfolk cornhole organic health street master venmo. Blog pug pinterest bitters muggle magic."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:23:05.242252"], ["updated_at", "2021-05-04 21:23:05.242252"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Brooklyn diy flannel franzen cliche marfa."], ["description", "Marfa fashion axe chillwave stumptown 90's trust fund. Beard church-key normcore pour-over trust fund. Green juice loko vegan squid hoodie wayfarers. Church-key street hoodie art party kitsch shabby chic. Ugh readymade everyday cred."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:23:05.266189"], ["updated_at", "2021-05-04 21:23:05.266189"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Squid gastropub readymade ennui."], ["description", "Cray heirloom actually hashtag meggings mlkshk kogi. Cray loko try-hard vice austin. Vhs kombucha lo-fi selfies migas. Poutine ennui cliche typewriter tofu mixtape craft beer. Yr godard vhs irony. Loko church-key tote bag cliche muggle magic pinterest."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:23:05.288345"], ["updated_at", "2021-05-04 21:23:05.288345"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Xoxo microdosing aesthetic normcore distillery organic 3 wolf moon."], ["description", "Selfies godard readymade you probably haven't heard of them. Chambray butcher semiotics five dollar toast tattooed. Craft beer keffiyeh tousled. Five dollar toast shoreditch ennui tilde vhs selvage next level. Yr wolf next level butcher seitan drinking."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:23:05.316914"], ["updated_at", "2021-05-04 21:23:05.316914"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Kale chips bushwick vegan vhs gentrify bespoke photo booth."], ["description", "Health leggings celiac twee poutine messenger bag selvage tote bag. Fashion axe 90's ennui cray yr bicycle rights synth chia. Sustainable meh beard chambray gluten-free pug street viral. Aesthetic vice whatever kombucha yr. Blue bottle austin chambray tacos chillwave fanny pack mixtape banjo. Shabby chic banh mi organic meggings viral jean shorts."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:23:05.338919"], ["updated_at", "2021-05-04 21:23:05.338919"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Mumblecore everyday 8-bit next level."], ["description", "Banh mi keffiyeh bushwick helvetica. Pabst vhs church-key normcore drinking mumblecore mustache. Muggle magic heirloom kickstarter phlogiston. Franzen flexitarian chillwave tacos trust fund blog mlkshk. Vhs brooklyn cleanse marfa health retro."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:23:05.361045"], ["updated_at", "2021-05-04 21:23:05.361045"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (5.5ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Food truck kombucha chambray."], ["description", "Iphone leggings stumptown. Pork belly marfa artisan. Small batch cred sustainable wayfarers pitchfork trust fund. Tacos diy kombucha chartreuse helvetica polaroid gluten-free +1. Artisan beard street occupy whatever raw denim."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:23:05.385781"], ["updated_at", "2021-05-04 21:23:05.385781"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (17.5ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Dreamcatcher thundercats flannel meditation listicle humblebrag fingerstache."], ["description", "Hashtag wayfarers selvage sartorial keytar tote bag. 3 wolf moon skateboard tofu chia gluten-free gastropub. Church-key butcher phlogiston. Wolf viral retro. Fanny pack vhs brunch organic kinfolk deep v art party artisan."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:23:05.452361"], ["updated_at", "2021-05-04 21:23:05.452361"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Waistcoat lomo meditation +1 photo booth stumptown narwhal roof."], ["description", "90's pinterest leggings. Scenester shabby chic direct trade keffiyeh. Listicle banh mi squid deep v helvetica bespoke. Chillwave scenester migas selfies meditation."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:23:05.498203"], ["updated_at", "2021-05-04 21:23:05.498203"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2021-05-04 14:23:06 -0700
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (3.0ms)
+  Rendered products/index.html.erb within layouts/application (6.4ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (2.1ms)
+Completed 200 OK in 115ms (Views: 110.6ms | ActiveRecord: 1.5ms)
+  [1m[35m (4.0ms)[0m  ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL
+  [1m[36m (15.2ms)[0m  [1mTRUNCATE TABLE "public"."users", "public"."orders", "public"."line_items", "public"."products", "public"."categories" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.2ms)[0m  ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL
+  [1m[36m (1.2ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+             tablename <> 'schema_migrations'  AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.3ms)[0m  select table_name from information_schema.views where table_schema = 'jungle_test'
+  [1m[36m (25.1ms)[0m  [1mTRUNCATE TABLE "public"."users", "public"."orders", "public"."line_items", "public"."products", "public"."categories" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Apparel"], ["created_at", "2021-05-04 21:25:43.380363"], ["updated_at", "2021-05-04 21:25:43.380363"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Pour-over farm-to-table before they sold out normcore chia."], ["description", "Gastropub tilde helvetica pour-over. Shoreditch echo next level kickstarter truffaut. Crucifix kickstarter scenester keffiyeh freegan meditation sustainable polaroid. Letterpress bitters ramps gentrify 90's kombucha raw denim actually. Authentic vinegar squid migas single-origin coffee."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:25:43.798480"], ["updated_at", "2021-05-04 21:25:43.798480"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Post-ironic freegan photo booth ramps loko shabby chic."], ["description", "Mumblecore chicharrones jean shorts mixtape polaroid hammock. Authentic ennui blog chartreuse. Tacos heirloom cray. Etsy twee artisan sartorial thundercats. Intelligentsia drinking hammock phlogiston."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:25:43.824248"], ["updated_at", "2021-05-04 21:25:43.824248"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Ugh five dollar toast roof vegan fingerstache lumbersexual tofu salvia."], ["description", "Skateboard keytar photo booth listicle gentrify. Migas hashtag listicle drinking freegan chia. Kinfolk put a bird on it umami aesthetic. Yolo everyday kogi."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:25:43.848627"], ["updated_at", "2021-05-04 21:25:43.848627"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Five dollar toast vhs schlitz chartreuse keffiyeh ethical tattooed everyday."], ["description", "Fashion axe literally dreamcatcher quinoa 90's brunch. Venmo shoreditch plaid bicycle rights messenger bag typewriter loko hammock. Normcore church-key squid keytar post-ironic diy trust fund disrupt. Chicharrones letterpress polaroid paleo. Chillwave actually five dollar toast green juice cold-pressed. Waistcoat taxidermy vhs chia."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:25:43.873969"], ["updated_at", "2021-05-04 21:25:43.873969"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Cold-pressed asymmetrical put a bird on it bicycle rights blog thundercats fixie mlkshk."], ["description", "Pork belly offal vice try-hard stumptown. Tattooed lo-fi locavore cred chillwave retro ennui. Organic pour-over intelligentsia celiac microdosing plaid schlitz. Ramps kogi hammock."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:25:43.907043"], ["updated_at", "2021-05-04 21:25:43.907043"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Salvia cleanse phlogiston readymade chillwave offal."], ["description", "Listicle selvage slow-carb. Organic pbr&b mumblecore viral marfa drinking. Organic vhs neutra meh gastropub. Kitsch bespoke listicle brunch pbr&b vhs chambray art party. Hammock whatever pour-over 8-bit gluten-free selvage wolf cardigan."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:25:43.928947"], ["updated_at", "2021-05-04 21:25:43.928947"]]
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (24.0ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Godard park offal polaroid small batch letterpress scenester paleo."], ["description", "Post-ironic farm-to-table artisan. Blog muggle magic seitan cliche direct trade. Microdosing cred tattooed fashion axe pug. Sriracha chartreuse phlogiston green juice lumbersexual. Selvage listicle tilde normcore stumptown offal. Tilde put a bird on it biodiesel salvia letterpress small batch whatever."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:25:43.989170"], ["updated_at", "2021-05-04 21:25:43.989170"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Whatever heirloom goth."], ["description", "Gluten-free authentic cleanse diy mumblecore. Twee salvia sartorial xoxo marfa readymade normcore. Taxidermy phlogiston messenger bag farm-to-table offal goth. Hashtag thundercats kogi 90's vegan +1 helvetica."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:25:44.038003"], ["updated_at", "2021-05-04 21:25:44.038003"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Photo booth banh mi bitters."], ["description", "Tattooed viral polaroid bushwick banjo pbr&b. Lo-fi put a bird on it ethical bespoke thundercats. Photo booth locavore freegan church-key normcore whatever put a bird on it. Cliche art party wayfarers truffaut ennui organic thundercats."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:25:44.059560"], ["updated_at", "2021-05-04 21:25:44.059560"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "You probably haven't heard of them pitchfork church-key typewriter chicharrones fixie diy sriracha."], ["description", "Direct trade intelligentsia 8-bit gentrify. Jean shorts echo skateboard celiac marfa ethical wayfarers. Banjo letterpress art party pug aesthetic gluten-free phlogiston meh. Fixie health cornhole pork belly pour-over franzen fingerstache cleanse. Crucifix slow-carb cliche."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:25:44.081357"], ["updated_at", "2021-05-04 21:25:44.081357"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2021-05-04 14:25:45 -0700
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.2ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (3.0ms)
+  Rendered products/index.html.erb within layouts/application (6.6ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (3.3ms)
+Completed 200 OK in 171ms (Views: 165.9ms | ActiveRecord: 1.7ms)
+  [1m[35m (4.9ms)[0m  ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL
+  [1m[36m (22.3ms)[0m  [1mTRUNCATE TABLE "public"."users", "public"."orders", "public"."line_items", "public"."products", "public"."categories" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.7ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL
+  [1m[36m (1.6ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+             tablename <> 'schema_migrations'  AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.4ms)[0m  select table_name from information_schema.views where table_schema = 'jungle_test'
+  [1m[36m (16.7ms)[0m  [1mTRUNCATE TABLE "public"."users", "public"."orders", "public"."line_items", "public"."products", "public"."categories" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Apparel"], ["created_at", "2021-05-04 21:26:53.654850"], ["updated_at", "2021-05-04 21:26:53.654850"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Distillery yolo five dollar toast kinfolk letterpress ethical."], ["description", "Offal craft beer before they sold out street schlitz. Organic synth pork belly. Letterpress brunch lumbersexual freegan. Tumblr schlitz freegan. Tattooed etsy tousled."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:26:54.046175"], ["updated_at", "2021-05-04 21:26:54.046175"]]
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Diy gentrify heirloom tousled."], ["description", "Retro brunch lumbersexual synth. Shabby chic twee intelligentsia artisan wes anderson truffaut. Skateboard mumblecore flexitarian. Kitsch crucifix flannel raw denim dreamcatcher goth tofu. You probably haven't heard of them cold-pressed master carry neutra. 90's butcher try-hard everyday intelligentsia."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:26:54.069809"], ["updated_at", "2021-05-04 21:26:54.069809"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Tofu occupy mustache small batch venmo."], ["description", "Mustache yr meh iphone butcher brooklyn. Butcher pork belly organic wes anderson tattooed leggings etsy. Ennui keffiyeh vinegar. Locavore squid cronut sartorial venmo deep v kombucha. Poutine ethical chicharrones selvage swag cronut pinterest actually. Park photo booth aesthetic meh chambray."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:26:54.093096"], ["updated_at", "2021-05-04 21:26:54.093096"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Chia cleanse echo meditation."], ["description", "Schlitz celiac pop-up single-origin coffee 3 wolf moon craft beer. Art party thundercats synth photo booth. Yuccie portland asymmetrical gentrify twee. Godard meh marfa gluten-free cray green juice cleanse leggings."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:26:54.116139"], ["updated_at", "2021-05-04 21:26:54.116139"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Tote bag helvetica paleo pabst waistcoat keytar hashtag."], ["description", "Letterpress meditation ennui chillwave tote bag. Mlkshk waistcoat locavore gluten-free craft beer truffaut. Muggle magic waistcoat ugh. Blue bottle etsy typewriter tacos plaid. Cliche kinfolk meggings godard."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:26:54.146422"], ["updated_at", "2021-05-04 21:26:54.146422"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Taxidermy lumbersexual put a bird on it banh mi keytar cleanse etsy."], ["description", "Hella wolf cliche cardigan messenger bag blog pbr&b pop-up. Salvia yr five dollar toast vegan pug typewriter vhs gluten-free. Loko meditation +1. Disrupt pop-up echo street mustache tilde."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:26:54.168681"], ["updated_at", "2021-05-04 21:26:54.168681"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Pinterest ugh distillery roof semiotics sustainable."], ["description", "Heirloom hella artisan green juice sriracha kitsch selfies. Kale chips deep v bespoke ugh. Small batch lomo chartreuse meggings. Bushwick yolo post-ironic carry offal schlitz distillery. Blog lomo pour-over viral chartreuse celiac yr. Helvetica migas xoxo cold-pressed squid."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:26:54.190597"], ["updated_at", "2021-05-04 21:26:54.190597"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Echo distillery bushwick mustache retro fanny pack trust fund."], ["description", "Taxidermy viral shoreditch messenger bag intelligentsia pork belly. Biodiesel shabby chic hammock narwhal stumptown cardigan leggings. Goth pop-up authentic cornhole artisan craft beer vinegar. Viral flexitarian meh portland vinyl fashion axe semiotics yolo. Tofu franzen kogi. Flannel fixie godard pbr&b."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:26:54.245480"], ["updated_at", "2021-05-04 21:26:54.245480"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Freegan goth disrupt."], ["description", "Actually intelligentsia chicharrones kombucha pork belly authentic ugh blog. Dreamcatcher single-origin coffee yolo intelligentsia chartreuse. Vice sriracha mustache authentic wes anderson. Kitsch yuccie salvia xoxo ennui. Raw denim trust fund hoodie chartreuse. Single-origin coffee cleanse fingerstache actually."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:26:54.266766"], ["updated_at", "2021-05-04 21:26:54.266766"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (15.5ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Forage 3 wolf moon keytar single-origin coffee phlogiston lumbersexual migas banh mi."], ["description", "Post-ironic put a bird on it pork belly cold-pressed. Synth bicycle rights goth chambray five dollar toast tote bag pug carry. Post-ironic kinfolk sriracha wolf yolo austin. Art party fingerstache post-ironic. Sartorial scenester carry. Helvetica chartreuse roof raw denim celiac wolf +1."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:26:54.322785"], ["updated_at", "2021-05-04 21:26:54.322785"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2021-05-04 14:26:55 -0700
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (3.2ms)
+  Rendered products/index.html.erb within layouts/application (6.7ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (2.1ms)
+Completed 200 OK in 115ms (Views: 110.6ms | ActiveRecord: 1.6ms)
+  [1m[35m (0.8ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL
+  [1m[36m (15.6ms)[0m  [1mTRUNCATE TABLE "public"."users", "public"."orders", "public"."line_items", "public"."products", "public"."categories" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.2ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL
+  [1m[36m (0.8ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+             tablename <> 'schema_migrations'  AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (0.8ms)[0m  select table_name from information_schema.views where table_schema = 'jungle_test'
+  [1m[36m (33.5ms)[0m  [1mTRUNCATE TABLE "public"."users", "public"."orders", "public"."line_items", "public"."products", "public"."categories" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Apparel"], ["created_at", "2021-05-04 21:29:52.996435"], ["updated_at", "2021-05-04 21:29:52.996435"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (5.2ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Sustainable thundercats disrupt banjo forage."], ["description", "Yolo lumbersexual flexitarian drinking sriracha. Venmo wes anderson pinterest food truck pop-up mlkshk 90's sustainable. Church-key swag food truck bespoke keffiyeh kitsch yuccie sustainable. Kale chips skateboard ethical street put a bird on it pickled chicharrones. Aesthetic master single-origin coffee blog banh mi park biodiesel meditation."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:29:53.419643"], ["updated_at", "2021-05-04 21:29:53.419643"]]
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Yr neutra photo booth."], ["description", "Tousled bitters sartorial mlkshk waistcoat. Blog gluten-free keffiyeh. 90's crucifix stumptown. Shabby chic pinterest bespoke bicycle rights tofu kinfolk chambray. Cornhole squid food truck."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:29:53.455145"], ["updated_at", "2021-05-04 21:29:53.455145"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Quinoa hammock seitan."], ["description", "Kinfolk brooklyn banh mi franzen. Gastropub pabst helvetica poutine. Locavore authentic butcher waistcoat 8-bit salvia. Fanny pack letterpress before they sold out stumptown."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:29:53.478707"], ["updated_at", "2021-05-04 21:29:53.478707"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Gluten-free echo banjo direct trade wayfarers typewriter gastropub gentrify."], ["description", "Humblebrag fixie tofu brunch thundercats wolf kickstarter. Sriracha austin dreamcatcher flexitarian single-origin coffee. Plaid mlkshk park. Cray kitsch helvetica literally thundercats brunch celiac aesthetic. Williamsburg poutine wayfarers keffiyeh +1 cliche ramps."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:29:53.502513"], ["updated_at", "2021-05-04 21:29:53.502513"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Pabst yuccie church-key."], ["description", "Art party readymade skateboard waistcoat biodiesel. Plaid migas knausgaard +1 cleanse literally taxidermy. Literally shabby chic art party tofu drinking viral freegan. Ethical kickstarter typewriter asymmetrical shabby chic kombucha."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:29:53.526940"], ["updated_at", "2021-05-04 21:29:53.526940"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Microdosing diy lumbersexual meh migas."], ["description", "Viral forage whatever leggings. Twee bushwick roof retro. Lomo vhs chambray humblebrag chicharrones. Next level cred normcore hashtag. Yr locavore master tacos. Before they sold out lomo keffiyeh intelligentsia street direct trade."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:29:53.558056"], ["updated_at", "2021-05-04 21:29:53.558056"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Cliche flexitarian polaroid goth."], ["description", "Blog shoreditch truffaut bitters pork belly tousled phlogiston marfa. Pickled try-hard celiac butcher cred lumbersexual hoodie. 90's flexitarian stumptown craft beer cornhole. Art party poutine umami freegan vegan typewriter ugh next level."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:29:53.607370"], ["updated_at", "2021-05-04 21:29:53.607370"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Green juice keytar literally before they sold out slow-carb irony cold-pressed trust fund."], ["description", "Polaroid banh mi disrupt readymade pbr&b goth. Sartorial schlitz poutine. Whatever diy bitters dreamcatcher biodiesel. Freegan pickled hashtag kitsch keffiyeh."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:29:53.665009"], ["updated_at", "2021-05-04 21:29:53.665009"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Pop-up migas art party cliche seitan."], ["description", "Blog polaroid kombucha pinterest blue bottle. Next level pour-over chia salvia marfa heirloom bitters narwhal. Kinfolk direct trade offal hoodie butcher diy flannel brooklyn. Whatever bushwick biodiesel. Leggings umami mumblecore goth."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:29:53.693741"], ["updated_at", "2021-05-04 21:29:53.693741"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Aesthetic helvetica yuccie disrupt kale chips tumblr."], ["description", "Park bitters kickstarter. Craft beer kogi bespoke art party authentic. Waistcoat try-hard hashtag chicharrones literally meh. Heirloom beard fanny pack pork belly schlitz taxidermy kitsch church-key. Celiac single-origin coffee xoxo freegan paleo."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:29:53.719518"], ["updated_at", "2021-05-04 21:29:53.719518"]]
+  [1m[36m (4.6ms)[0m  [1mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2021-05-04 14:29:55 -0700
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.1ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (3.2ms)
+  Rendered products/index.html.erb within layouts/application (6.7ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (2.4ms)
+Completed 200 OK in 105ms (Views: 100.2ms | ActiveRecord: 1.8ms)
+Started POST "/cart/add_item?product_id=10" for 127.0.0.1 at 2021-05-04 14:29:56 -0700
+Processing by CartsController#add_item as HTML
+  Parameters: {"product_id"=>"10"}
+Redirected to http://127.0.0.1:50894/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2021-05-04 14:29:56 -0700
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (2.7ms)
+  Rendered products/index.html.erb within layouts/application (3.4ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (0.5ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.9ms)[0m  ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL
+  [1m[36m (15.8ms)[0m  [1mTRUNCATE TABLE "public"."users", "public"."orders", "public"."line_items", "public"."products", "public"."categories" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (1.1ms)[0m  ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.6ms)[0m  ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL
+  [1m[36m (1.0ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+             tablename <> 'schema_migrations'  AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.2ms)[0m  select table_name from information_schema.views where table_schema = 'jungle_test'
+  [1m[36m (21.8ms)[0m  [1mTRUNCATE TABLE "public"."users", "public"."orders", "public"."line_items", "public"."products", "public"."categories" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Apparel"], ["created_at", "2021-05-04 21:30:51.327723"], ["updated_at", "2021-05-04 21:30:51.327723"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Hashtag yr +1 bitters."], ["description", "Actually vice pug food truck ennui green juice portland. Microdosing fixie trust fund. Ethical phlogiston artisan street. Literally wolf goth vice pinterest locavore meh chillwave. Ugh schlitz retro shoreditch cray sustainable pork belly tilde."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:30:51.756511"], ["updated_at", "2021-05-04 21:30:51.756511"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Cred hella venmo pork belly loko."], ["description", "Hammock pinterest jean shorts kitsch marfa. Gastropub swag asymmetrical actually humblebrag selvage vinegar. Street keffiyeh xoxo roof kitsch. Before they sold out bicycle rights tumblr iphone actually. Cray neutra gluten-free health fanny pack meggings hashtag. 3 wolf moon vice meggings readymade distillery gentrify offal wayfarers."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:30:51.785372"], ["updated_at", "2021-05-04 21:30:51.785372"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Paleo viral neutra health banh mi cornhole ramps."], ["description", "Hoodie small batch ennui synth before they sold out artisan tote bag. Muggle magic meggings kombucha beard messenger bag occupy freegan. Scenester sriracha readymade. Loko kale chips cliche. Viral authentic heirloom celiac street drinking."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:30:51.817098"], ["updated_at", "2021-05-04 21:30:51.817098"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "3 wolf moon banh mi hashtag goth post-ironic kale chips neutra leggings."], ["description", "Twee actually tilde dreamcatcher kitsch wayfarers pour-over everyday. Yolo gastropub goth. Neutra butcher truffaut thundercats. Skateboard pitchfork keffiyeh williamsburg viral messenger bag. Cronut aesthetic waistcoat vinyl distillery."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:30:51.839004"], ["updated_at", "2021-05-04 21:30:51.839004"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Goth gentrify direct trade 3 wolf moon selfies typewriter."], ["description", "Art party banh mi occupy trust fund put a bird on it tofu flexitarian. Loko waistcoat kitsch poutine heirloom pug single-origin coffee muggle magic. Farm-to-table bicycle rights beard you probably haven't heard of them kickstarter. Wes anderson vinegar chartreuse hashtag art party."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:30:51.861926"], ["updated_at", "2021-05-04 21:30:51.861926"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Kombucha tacos williamsburg drinking wolf quinoa cardigan."], ["description", "Food truck everyday truffaut sriracha. Listicle banh mi cold-pressed. Asymmetrical fixie farm-to-table kombucha church-key actually poutine. Green juice carry thundercats humblebrag helvetica try-hard."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:30:51.892527"], ["updated_at", "2021-05-04 21:30:51.892527"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (22.8ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Williamsburg iphone synth yuccie butcher phlogiston master vinyl."], ["description", "Post-ironic yolo direct trade cred forage actually hoodie pug. Blog flexitarian butcher brunch. Street craft beer pickled church-key readymade. Retro mustache drinking ennui phlogiston beard seitan. Knausgaard small batch shabby chic cronut etsy keytar lo-fi. Squid tousled sartorial."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:30:51.946849"], ["updated_at", "2021-05-04 21:30:51.946849"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (2.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Freegan mlkshk tofu church-key bitters migas."], ["description", "Ugh pinterest sartorial keffiyeh trust fund portland dreamcatcher scenester. Kinfolk quinoa narwhal. Flannel trust fund mlkshk jean shorts chillwave gluten-free narwhal freegan. Yolo carry disrupt trust fund hammock sriracha diy. Fashion axe vinyl vice blue bottle chambray helvetica. Plaid biodiesel keffiyeh kickstarter fixie."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:30:52.018985"], ["updated_at", "2021-05-04 21:30:52.018985"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Truffaut skateboard goth tote bag."], ["description", "Lo-fi sartorial aesthetic chambray. Blue bottle shoreditch cleanse banjo kombucha waistcoat slow-carb. Semiotics next level polaroid blue bottle. Twee shabby chic everyday knausgaard."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:30:52.054904"], ["updated_at", "2021-05-04 21:30:52.054904"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Tumblr taxidermy fashion axe park health wayfarers."], ["description", "Mixtape ethical farm-to-table vinegar shabby chic fanny pack. Forage lo-fi kombucha bicycle rights portland chillwave mumblecore. Authentic mlkshk wolf roof. Ramps salvia shabby chic farm-to-table selvage poutine. Polaroid fingerstache blog church-key master. Pop-up chia farm-to-table hashtag letterpress goth plaid."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2021-05-04 21:30:52.081988"], ["updated_at", "2021-05-04 21:30:52.081988"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2021-05-04 14:30:53 -0700
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.7ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (3.4ms)
+  Rendered products/index.html.erb within layouts/application (7.7ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (5.6ms)
+Completed 200 OK in 130ms (Views: 124.8ms | ActiveRecord: 2.3ms)
+Started POST "/cart/add_item?product_id=10" for 127.0.0.1 at 2021-05-04 14:30:54 -0700
+Processing by CartsController#add_item as HTML
+  Parameters: {"product_id"=>"10"}
+Redirected to http://127.0.0.1:51143/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2021-05-04 14:30:54 -0700
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (2.7ms)
+  Rendered products/index.html.erb within layouts/application (3.4ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (0.6ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.6ms)
+  [1m[35m (10.7ms)[0m  ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL
+  [1m[36m (27.8ms)[0m  [1mTRUNCATE TABLE "public"."users", "public"."orders", "public"."line_items", "public"."products", "public"."categories" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (1.3ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL
