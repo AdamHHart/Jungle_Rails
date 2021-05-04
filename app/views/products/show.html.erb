@@ -23,7 +23,7 @@
           <dt>Price</dt>
           <dd><%=humanized_money_with_symbol  @product.price %></dd>
         </dl>
-        <% if product.quantity == 0 %>
+        <% if @product.quantity == 0 %>
         <div class="alert alert-warning" role="alert">
           <h3>SOLD OUT! </h3>
         </div>  
