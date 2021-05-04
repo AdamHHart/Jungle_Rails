@@ -3,6 +3,19 @@
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
 
+[<img src="https://github.com/AdamHHart/Jungle_Rails/blob/master/public/docs/home_page.png?raw=true">](home_page)
+
+[<img src="https://github.com/AdamHHart/Jungle_Rails/blob/master/public/docs/admin_products.png?raw=true">](admin_products)
+
+[<img src="https://github.com/AdamHHart/Jungle_Rails/blob/master/public/docs/empty_cart.png?raw=true">](empty_cart)
+
+[<img src="https://github.com/AdamHHart/Jungle_Rails/blob/master/public/docs/stripe_purchase_popup.png?raw=true">](stripe_purchase_popup)
+
+
+
+
+
+
 ## Setup
 
 1. Run `bundle install` to install dependencies
